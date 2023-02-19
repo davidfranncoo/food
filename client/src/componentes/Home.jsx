@@ -1,6 +1,6 @@
 import React,{useEffect, Fragment,useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getRecipes} from "../action"
+import {getRecipes, filterRecipeByDiet, filterByName} from "../action"
 import {Link} from "react-router-dom";
 import Card from "./Card";
 import Paginado from "./Paginado";
@@ -8,14 +8,16 @@ import Paginado from "./Paginado";
 
 export default function Home(){
     const dispatch=useDispatch();
-    
     const allRecipe=useSelector(state=>state.recipes) || [];
-    console.log("cantidaddd",allRecipe.length)
+    
     //? creo los estados locales para el paginado
     //! es par la pagina actual que comienza en la pag 1
     const[currenPage,setCurrenPage]=useState(1) 
     //!guarmae en la cantidad de receta por pagina
-    const recipePerPage = 9;//?const[recipePerPage,setRecipePerPage]=useState(9)
+    //!CLAVER PARA ORDENAR ASCENDEMTE Y DESCENDENTE
+    const[order,setOrder]=useState("")
+    //const[recipePerPage,setRecipePerPage]=useState(9)
+    const recipePerPage = 9;
     //! indice del ultimpo personaje
     const indexOfLastRecipe=currenPage*recipePerPage
     //! indice del primer personaje
@@ -32,6 +34,7 @@ export default function Home(){
 
     useEffect(()=>{//!esto es lo que va montar al inicio 
         dispatch(getRecipes())
+       
     }, [dispatch])//! dentro del parentesis indica, que se montara si se ejecuesa lo que est dentro
 
     
@@ -39,7 +42,17 @@ export default function Home(){
     function handlerClick(e){
         //? WARING no me pasa e.preven averiguar
         e.preventDefault();//! para que no recarge cada instante y reviente la pagina
-        dispatch(getRecipes());
+        dispatch(getRecipes())
+    }
+    function handlerFilterDiet(e){
+        dispatch(filterRecipeByDiet(e.target.value))
+
+    }
+    function handlerOrder(e){
+        e.preventDefault();
+        dispatch(filterByName(e.target.value))
+        setCurrenPage(1);
+        setOrder(`${e.target.value}`)
     }
 
 //! en el selec va a ir loos filtros
@@ -51,26 +64,29 @@ export default function Home(){
 
             <h1>AGUANTE LAS RECETAS</h1>
 
-            <button onClick={(e)=>{handlerClick(e)}}> 
+            <button onClick={(e)=>handlerClick(e)}> 
 
             volver a cargar los componentes</button>
             <div>
-                <select>
+                <select onChange={(e)=>handlerOrder(e)}>
                     <option value="asc">Ascendente</option>
                     <option value="dsc">Descendente</option>
                     
                 </select>
-                <select>
-                    <option value="1">Todas las diestas</option>
-                    <option value="1">Dieta 1</option>
-                    <option value="2">Dieta 2</option>
-                    <option value="3">Dieta 3</option>
-                    <option value="4">Dieta 4</option>
+                <select onChange={(e)=>handlerFilterDiet(e)}>
+                    <option value="all">Todas</option>
+                    <option value="gluten free">Libre De Gluten</option>
+                    <option value="dairy free">Sin Lacteo</option>
+                    <option value="lacto ovo vegetarian">Ovo Lacteo Vegetariano </option>
+                    <option value="vegan">Vegano</option>
+                    <option value="whole 30">Los 30</option>
+                    <option value="primal">Primaveral</option>
+                    
 
                 </select>
                 <select>
-                    <option value="ver1 "> hiscore 1 a 100</option>
-                    <option value="ver 2">hiscore 100 a 1</option>
+                    <option value="hiscore1a100"> hiscore 1 a 100</option>
+                    <option value="hiscore100a1">hiscore 100 a 1</option>
                 </select>
              <Paginado
             recipePerPage={recipePerPage}
