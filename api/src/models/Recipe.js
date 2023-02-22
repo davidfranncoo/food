@@ -37,9 +37,14 @@ module.exports = sequelize => {
       //! FORMA DE DECIR QUE VOY A GUARDAR ARRAY CON OBJETOS
 
       type: DataTypes.ARRAY(DataTypes.JSON()),
-      //allowNull: false,
+      allowNull: false,
 
     },
+    createdDb:{
+      type: DataTypes.BOOLEAN,
+      allowNull:false,
+      defaultValue:true
+    }
   });
 
 

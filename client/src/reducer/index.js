@@ -59,6 +59,12 @@ export default function rootReducer(state=initialState,action){
             recipes: finterName
               
         }
+        //!solo se coloca esto, ya que el filtrado se hizo en el back
+        case "ORDER_BY_NAME":
+            return {
+                ...state,
+                recipes:action.payload
+            }
         default:
             return state;
     }

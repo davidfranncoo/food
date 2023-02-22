@@ -4,6 +4,7 @@ import {getRecipes, filterRecipeByDiet, filterByName} from "../action"
 import {Link} from "react-router-dom";
 import Card from "./Card";
 import Paginado from "./Paginado";
+import SearchBar from "./SearchBar";
 
 
 export default function Home(){
@@ -92,6 +93,7 @@ export default function Home(){
             recipePerPage={recipePerPage}
             allRecipes={allRecipe.length}
             paginado={paginado}/>
+            <SearchBar/>
             {
                 currentRecipes?.map((e,index)=>{
                     return(
