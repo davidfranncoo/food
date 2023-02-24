@@ -10,7 +10,7 @@ return(
     <div>
         <h1>bienvenido al incio </h1>
         <Link  to="/home">
-        <button>ingresar</button>
+        <button className="ingresar">ingresar</button>
         </Link>
 
 

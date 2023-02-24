@@ -52,19 +52,29 @@ export default function rootReducer(state=initialState,action){
                 return 0;
 
             })
-            console.log("find;;;",finterName)
+            
            console.log("recipe:",state.recipes)
         return {
             ...state,
             recipes: finterName
               
         }
-        //!solo se coloca esto, ya que el filtrado se hizo en el back
+        //solo se coloca esto, ya que el filtrado se hizo en el back
         case "ORDER_BY_NAME":
             return {
                 ...state,
                 recipes:action.payload
             }
+            // el POST no hace nada, solo devuelve el el stado como estaba
+            case "POST_RECIPE":
+                return {
+                    ...state
+                }
+                case "GET_DETAILS":
+                    return {
+                        ...state,
+                        detail:action.payload
+                    }
         default:
             return state;
     }

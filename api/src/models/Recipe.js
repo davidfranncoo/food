@@ -20,14 +20,21 @@ module.exports = sequelize => {
       type:DataTypes.STRING,
       //allowNull:false
     },
+    // diets:{
+    //   type: DataTypes.ARRAY(DataTypes.JSON()),
+    //   allowNull:false
+    // },
     diets:{
-      type: DataTypes.ARRAY(DataTypes.JSON()),
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull:false
     },
+
     dish_summary:{
       type:DataTypes.TEXT,
       allowNull:false
+    
     },
+    
     health_score:{
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -35,7 +42,6 @@ module.exports = sequelize => {
     },
     steps:{
       //! FORMA DE DECIR QUE VOY A GUARDAR ARRAY CON OBJETOS
-
       type: DataTypes.ARRAY(DataTypes.JSON()),
       allowNull: false,
 

@@ -16,7 +16,8 @@ const getInformation=async()=>{
                  return;
                 }else{ 
                 return{ 
-                    id:e.id,  
+                  //string() porque la info de api en number, pasamos a cadena de tipo string
+                    id:String(e.id),  
                    name: e.title,
                     image:e.image,
                     diet:e.diets,
@@ -54,11 +55,17 @@ router.get("/recipe",async(req,res)=>{
 
     //!corroborar
     router.get('/recipe/:id', async (req, res) => {
-        const { id } = req.params;
-      const t=await getInformation()
+      // tener en cuenta que cuando se trata de numero la info llega como string, 
+      // hay que aclarar en el parseInt, para que nuestra cadena de tipo Stringse 
+      // convierta en numero o diseversa con String()
+      const {id}= req.params;
+      
+        const t=await getInformation()
+     
       try {
-          const recipe = t.filter((e)=>{e.id===id})
+          const recipe = t.find((e)=>e.id===id)
           if (!recipe) { 
+            console.log("no hay recipeeeee")
            return res.status(404).json({ message: 'Receta no encontrada' });
           }
          const recipeDetails = {
@@ -125,7 +132,7 @@ try {
 
    }
 
-
+   console.log(listDiet)
    return res.status(400).send("se cargaron correctamente los elementos a la tabla")
   } catch (error) {
 

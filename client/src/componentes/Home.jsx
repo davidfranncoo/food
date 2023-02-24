@@ -5,27 +5,27 @@ import {Link} from "react-router-dom";
 import Card from "./Card";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
-
+import "./Home.css"
 
 export default function Home(){
     const dispatch=useDispatch();
     const allRecipe=useSelector(state=>state.recipes) || [];
     
     //? creo los estados locales para el paginado
-    //! es par la pagina actual que comienza en la pag 1
+    // es par la pagina actual que comienza en la pag 1
     const[currenPage,setCurrenPage]=useState(1) 
-    //!guarmae en la cantidad de receta por pagina
-    //!CLAVER PARA ORDENAR ASCENDEMTE Y DESCENDENTE
+    //guarmae en la cantidad de receta por pagina
+    //CLAVER PARA ORDENAR ASCENDEMTE Y DESCENDENTE
     const[order,setOrder]=useState("")
     //const[recipePerPage,setRecipePerPage]=useState(9)
     const recipePerPage = 9;
-    //! indice del ultimpo personaje
+    // indice del ultimpo personaje
     const indexOfLastRecipe=currenPage*recipePerPage
-    //! indice del primer personaje
+    // indice del primer personaje
     const indexOfFirstRecipe= indexOfLastRecipe - recipePerPage
-    //! guardo todos los personajes por pagina
+    // guardo todos los personajes por pagina
     const currentRecipes=allRecipe.slice(indexOfFirstRecipe,indexOfLastRecipe)
-    //! const paginado
+    // const paginado
 
     //!ayudara al renderizado
     const paginado=(pageNumber)=>{
@@ -61,7 +61,7 @@ export default function Home(){
 //! el segundo sele puede ser por el tipo de dieta por ende si son muchos se puede hacer un map
     return (
         <div>
-            <Link to="/recipe"> CREAR RECETA</Link>
+            <Link to="/recipe" className="crearReceta"> CREAR RECETA</Link>
 
             <h1>AGUANTE LAS RECETAS</h1>
 
