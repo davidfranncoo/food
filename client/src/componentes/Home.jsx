@@ -59,58 +59,56 @@ export default function Home(){
 //! en el selec va a ir loos filtros
 //! el value siempre va para que luego nos permitan acceder a ello
 //! el segundo sele puede ser por el tipo de dieta por ende si son muchos se puede hacer un map
-    return (
-        <div className="home img">
-            <Link to="/recipe" className="crearReceta"> CREAR RECETA</Link>
+ return (
+ <div className="conteiner">
 
+     <div className="home imge">
+        <Link to="/recipe" className="crearReceta"> CREAR RECETA</Link>
             <h1>AGUANTE LAS RECETAS</h1>
-
             <button onClick={(e)=>handlerClick(e)}> 
+        volver a cargar los componentes</button>
+     {/* </div>
+     EL ERROR ESTA EN LOS DIVS
+     <div> */}
+        <select onChange={(e)=>handlerOrder(e)}>
+             <option value="asc">Ascendente</option>
+             <option value="dsc">Descendente</option>      
+        </select>
 
-            volver a cargar los componentes</button>
-            <div>
-                <select onChange={(e)=>handlerOrder(e)}>
-                    <option value="asc">Ascendente</option>
-                    <option value="dsc">Descendente</option>
-                    
-                </select>
-                <select onChange={(e)=>handlerFilterDiet(e)}>
-                    <option value="all">Todas</option>
-                    <option value="gluten free">Libre De Gluten</option>
-                    <option value="dairy free">Sin Lacteo</option>
-                    <option value="lacto ovo vegetarian">Ovo Lacteo Vegetariano </option>
-                    <option value="vegan">Vegano</option>
-                    <option value="whole 30">Los 30</option>
-                    <option value="primal">Primaveral</option>
-                    
+        <select onChange={(e)=>handlerFilterDiet(e)}>
+             <option value="all">Todas</option>
+             <option value="gluten free">Libre De Gluten</option>
+             <option value="dairy free">Sin Lacteo</option>
+             <option value="lacto ovo vegetarian">Ovo Lacteo Vegetariano </option>
+             <option value="vegan">Vegano</option>
+             <option value="whole 30">Los 30</option>
+             <option value="primal">Primaveral</option>
+         </select>
 
-                </select>
-                <select>
-                    <option value="hiscore1a100"> hiscore 1 a 100</option>
-                    <option value="hiscore100a1">hiscore 100 a 1</option>
-                </select>
-             <Paginado
-            recipePerPage={recipePerPage}
-            allRecipes={allRecipe.length}
-            paginado={paginado}/>
-            <SearchBar/>
-            {
-                currentRecipes?.map((e,index)=>{
-                    return(
-                        <Fragment key={index}>
-                            <Link to={"/home/" + e.id}>
-                            <Card name={e.name} image={e.image} diets={e.diet} />
-                                
-                            </Link>
-                        </Fragment>
-                    )
-                    
-                })
-                
-            } 
-            </div>
-        </div>
-    )
+         <select>
+             <option value="hiscore1a100"> hiscore 1 a 100</option>
+             <option value="hiscore100a1">hiscore 100 a 1</option>
+         </select>
+        <Paginado
+                recipePerPage={recipePerPage}
+                allRecipes={allRecipe.length}
+                paginado={paginado}/>
+        <SearchBar/>
+    </div>
+     <div className="conteiner.card">
+         {currentRecipes?.map((e,index)=>{
+                 return(
+                     <Fragment key={index}>
+                         <Link to={"/home/" + e.id}>
+                         <Card name={e.name} image={e.image} diets={e.diet} />
+                             
+                         </Link>
+                     </Fragment>
+                 )})   
+         }     
+     </div>
+</div>
+ )
 
 
 }

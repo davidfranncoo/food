@@ -1,12 +1,26 @@
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin: 0; /* Establece el margen exterior del elemento body en 0 píxeles, lo que significa que no habrá espacio en blanco alrededor del borde del cuerpo */
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  /* Establece la fuente predeterminada para todo el contenido de la página. En este caso, se utiliza una lista de fuentes
+   seguras para sistemas operativos Mac, Windows y Linux.
+    Si una fuente no está disponible en un sistema, 
+    se utilizará la siguiente en la lista. 
+    La última opción de la lista es "sans-serif", 
+    que se utilizará como fuente de respaldo si 
+    todas las demás fallan. */
+
+  -webkit-font-smoothing: antialiased; /* Habilita la técnica de suavizado de fuentes antialiasing en navegadores web basados en Webkit, como Safari y Chrome.
+   Esto hace que el texto se vea más suave y nítido en pantallas de alta resolución. */
+
+  -moz-osx-font-smoothing: grayscale; /* Habilita la técnica de suavizado de fuentes en escala de grises en navegadores web basados en Gecko, como Firefox.
+   Esto hace que el texto se vea más suave y nítido en pantallas de alta resolución en Mac OS X. */
 }
-.crearReceta{
+
+
+/*----------- para el boton  ------------*/
+.crearReceta{ 
     background-color: #007bff;
     color: white;
     border: none;
@@ -19,26 +33,12 @@ body {
   .crearReceta:hover {
     background-color: #0062cc;
   }
-  /* .home{
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 
-  }
-  .img{
-    position: fixed;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   z-index: 1;} */
 
-   .img::before {
-    
+/* ------------------para el fondo borroso---------- */
+   .imge::before {
     content: "";
-    background: url("../image/1440-hamburguesa-amburguesa-de-calabaza_-1536x1106.jpg");
+    background: url("../image/berenjenas-a-la-plancha-con-salsa-de-aguacate-5-1300x1122.jpg");
     position: absolute;
     top: 0;
     left: 0;
@@ -46,4 +46,14 @@ body {
     right: 0;
     filter: blur(30px);
     z-index: -1;
+  }
+
+  .conteiner{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .conteiner.card{
+    display: flex;
+   
   }
