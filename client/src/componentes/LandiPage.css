@@ -1,16 +1,25 @@
- body {
-    background-image:'#ffc0cb';
+  body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #bdd3ff;
-  
   }
-  .ingresar{
+  .inicio{
+    font-family: cursive;
+    font-size: 80px;
+  }
+.conteiner{
+  position: relative;
+    z-index: -1;
+    padding: 20px;
+    text-align: center;
+  }
+  
+    .ingresar{
     background-color: #007bff;
+  
     color: white;
     border: none;
     padding: 10px 20px;
@@ -21,4 +30,34 @@
   
   .ingresar:hover {
     background-color: #0062cc;
+  }
+  /* .img{
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1; 
+    background:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("../image/1440-hamburguesa-amburguesa-de-calabaza_-1536x1106.jpg");
+   /* filter: blur(5px);  */ 
+   .img{
+    position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   z-index: 1;}
+
+   .img::before {
+    
+    content: "";
+    background: url("../image/1440-hamburguesa-amburguesa-de-calabaza_-1536x1106.jpg");
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    filter: blur(30px);
+    z-index: -1;
   }

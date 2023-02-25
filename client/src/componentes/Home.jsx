@@ -60,7 +60,7 @@ export default function Home(){
 //! el value siempre va para que luego nos permitan acceder a ello
 //! el segundo sele puede ser por el tipo de dieta por ende si son muchos se puede hacer un map
     return (
-        <div>
+        <div className="home img">
             <Link to="/recipe" className="crearReceta"> CREAR RECETA</Link>
 
             <h1>AGUANTE LAS RECETAS</h1>

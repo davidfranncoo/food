@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 // useHistory es para que me envie a la home una vez creado la receta
 import { Link} from "react-router-dom";
-
 import { useDispatch, useSelector } from "react-redux";
 import "./CreateRecipe.css"
 import { postRecipe } from "../action";
@@ -67,15 +66,12 @@ function handlerSubmit(e){
     steps:[],
   health_score:"",
 })
-
    // aca podemos usar el history para que directamente me envie al home y ver mi receta
 }
     return (
         <div>
             <Link to="/home"><button className="volver">volver</button></Link>
             <h1>crea tu personaje</h1>
-
-
             <form onSubmit={(e)=>handlerSubmit(e)}>
                 <div>
                     <label>Name:</label>
@@ -108,9 +104,7 @@ function handlerSubmit(e){
     
                 <div>
                     <label>Diets</label>
-
                     <br/>
-
                     <label><input
                     type="checkbox"
                     name="gluten free"
@@ -145,11 +139,8 @@ function handlerSubmit(e){
                     value="paleolithic"
                     onChange={(e)=>handlerCkeck(e)}
                     />paleolithic</label>
-
-
-
-
                 </div>
+
                 <div >
                     <label >Steps</label>
                     <input
@@ -162,17 +153,14 @@ function handlerSubmit(e){
                 <button type="button"onClick={handlerStepClick}>agregar paso</button> 
 
                 </div>
+                
                 <br/>
                 <br/>
 
               <button type="submit"> Create Recipe</button>
             </form>
         </div>
-    )
-  
-        
-
-    }
+    )};
 
 
 

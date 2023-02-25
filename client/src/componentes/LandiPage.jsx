@@ -3,19 +3,17 @@ import React from "react";
 import {Link} from "react-router-dom";
 import "./LandiPage.css"
 
-
 export default function LandiPage(){
     //!entender el link
 return(
-    <div>
-        <h1>bienvenido al incio </h1>
-        <Link  to="/home">
-        <button className="ingresar">ingresar</button>
-        </Link>
-
-
+    <div className="img" >
+       
+        <div className="conteiner">
+            <h1 className="inicio">Comida Rica <br/>
+                &<br/> Saludable</h1>
+            <Link  to="/home">
+                <button className="ingresar">Bienvenido</button>
+            </Link>
+        </div>
     </div>
-
-    )   
-
-}
+    )}

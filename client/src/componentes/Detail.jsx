@@ -5,6 +5,7 @@ import { getDetail } from "../action";
 
 export default function Detail(props){      
     console.log("esto es props",props.match.params)
+    
 
     const dispatch=useDispatch();
 
